@@ -1,0 +1,61 @@
+<html>
+  <head>
+    <meta charset="UTF-8">    
+    <title>
+      Word Generation
+    </title>
+  </head>
+  <body>
+    <div style="align-content: center">
+      <span id="generatedWordSpan" style="color:red;font-size:72px;">
+        Generated word goes here.
+      </span>
+    </div>
+    <script>
+      let letters = [
+        "ا",
+        "ب",
+        "ت",
+        "ث",
+        "ج",
+        "ح",
+        "خ",
+        "د",
+        "ذ",
+        "ر",
+        "ز",
+        "ط",
+        "ظ",
+        "ك",
+        "ل",
+        "م",
+        "ن",
+        "ص",
+        "ض",
+        "ع",
+        "غ",
+        "ف",
+        "ق",
+        "س",
+        "ش",
+        "ه",
+        "و",
+        "ي"
+      ];
+      let harakat = [
+        "\u064E",
+        "\u064F",
+        "\u0650"
+      ];
+      function generateWord() {
+        let generatedWord = "";
+        for (let i = 0; i < 3; i++) {
+          generatedWord += letters[Math.floor(Math.random() * letters.length)];
+          generatedWord += harakat[Math.floor(Math.random() * harakat.length)];
+        }
+        return generatedWord;
+      }
+      document.getElementById("generatedWordSpan").innerHTML = generateWord();
+    </script>
+  </body>
+<html>
