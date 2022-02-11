@@ -15,79 +15,60 @@
     </style>
   </head>
   <body>
-    <table>
+    <table id="letterShapesTable">
       <tr>
         <td> Letter </td>
         <td> Beginning </td>
         <td> Middle </td>
         <td> End </td>
       </tr>
-      <tr>
-        <td> ا </td>
-        <td> ابب </td>
-        <td> باب </td>
-        <td> ببا </td>
-      </tr>
-      <tr>
-        <td> ب </td>
-        <td> ببب </td>
-        <td> ببب </td>
-        <td> ببب </td>
-      </tr>
-      <tr>
-        <td> ت </td>
-        <td> تبب </td>
-        <td> بتب </td>
-        <td> ببت </td>
-      </tr>
-      <tr>
-        <td> ث </td>
-        <td> ثبب </td>
-        <td> بثب </td>
-        <td> ببث </td>
-      </tr>
-      <tr>
-        <td> ج </td>
-        <td> جبب </td>
-        <td> بجب </td>
-        <td> ببج </td>
-      </tr>
-      <tr>
-        <td> ح </td>
-        <td> حبب </td>
-        <td> بحب </td>
-        <td> ببح </td>
-      </tr>
-      <tr>
-        <td> خ </td>
-        <td> خبب </td>
-        <td> بخب </td>
-        <td> ببخ </td>
-      </tr>
-      <tr>
-        <td> د </td>
-        <td> دبب </td>
-        <td> بدب </td>
-        <td> ببد </td>
-      </tr>
-      <tr>
-        <td> ذ </td>
-        <td> ذبب </td>
-        <td> بذب </td>
-        <td> ببذ </td>
-      </tr>
-      <tr>
-        <td> ر </td>
-        <td> ربب </td>
-        <td> برب </td>
-        <td> ببر </td>
-      </tr>
-      <tr>
-        <td> ز </td>
-        <td> زبب </td>
-        <td> بزب </td>
-        <td> ببز </td>
-      </tr>
     </table>
+    <script>
+      let letters = [
+        "ا",
+        "ب",
+        "ت",
+        "ث",
+        "ج",
+        "ح",
+        "خ",
+        "د",
+        "ذ",
+        "ر",
+        "ز",
+        "ط",
+        "ظ",
+        "ك",
+        "ل",
+        "م",
+        "ن",
+        "ص",
+        "ض",
+        "ع",
+        "غ",
+        "ف",
+        "ق",
+        "س",
+        "ش",
+        "ه",
+        "و",
+        "ي"
+      ];
+      function addCell(rowNode, text) {
+        const cellNode = rowNode.insertCell(-1);
+        cellNode.innerHTML = text;
+      }
+      function generateLetterShapesTable(tableNode) {
+        for (let i = 0; i < letters.length; i++) {
+          const rowNode = tableNode.insertRow(-1);
+          addCell(rowNode, letters[i]);
+          addCell(rowNode, letters[i] + "ب" + "ب");
+          addCell(rowNode, "ب" + letters[i] + "ب");
+          addCell(rowNode, "ب" +"ب" + letters[i]);
+        }
+        return generatedWord;
+      }
+      generateLetterShapesTable(document.getElementById("letterShapesTable"));
+    </script>
   </body>
 </html>
