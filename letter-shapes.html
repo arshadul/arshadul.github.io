@@ -15,6 +15,9 @@
     </style>
   </head>
   <body>
+     <button onclick='generateShuffledLetterShapesTable(document.getElementById("letterShapesTable"))'>Random List</button> 
+     <button onclick='generateLetterShapesTable(document.getElementById("letterShapesTable"))'>Sorted List</button>
+     <br/>
     <table id="letterShapesTable">
       <tr>
         <td> Letter </td>
@@ -58,17 +61,52 @@
         const cellNode = rowNode.insertCell(-1);
         cellNode.innerHTML = text;
       }
-      function generateLetterShapesTable(tableNode) {
-        for (let i = 0; i < letters.length; i++) {
-          const rowNode = tableNode.insertRow(-1);
-          addCell(rowNode, letters[i]);
-          addCell(rowNode, letters[i] + "ب" + "ب");
-          addCell(rowNode, "ب" + letters[i] + "ب");
-          addCell(rowNode, "ب" +"ب" + letters[i]);
+
+      function clearTable(tableNode) {
+        while(tableNode.rows.length > 1) {
+          tableNode.deleteRow(-1);
         }
-        return generatedWord;
       }
+
+      function addLetterRows(tableNode, lettersList) {
+        for (let i = 0; i < lettersList.length; i++) {
+          const rowNode = tableNode.insertRow(-1);
+          addCell(rowNode, lettersList[i]);
+          addCell(rowNode, lettersList[i] + "ب" + "ب");
+          addCell(rowNode, "ب" + lettersList[i] + "ب");
+          addCell(rowNode, "ب" +"ب" + lettersList[i]);
+        }
+      }
+
+      function generateLetterShapesTable(tableNode) {
+        clearTable(tableNode);
+        addLetterRows(tableNode, letters);
+      }
+
+      function shuffleArray(array) {
+        let curId = array.length;
+        // There remain elements to shuffle
+        while (0 !== curId) {
+          // Pick a remaining element
+          let randId = Math.floor(Math.random() * curId);
+          curId -= 1;
+          // Swap it with the current element.
+          let tmp = array[curId];
+          array[curId] = array[randId];
+          array[randId] = tmp;
+        }
+        return array;
+      }
+
+      function generateShuffledLetterShapesTable(tableNode) {
+        clearTable(tableNode);
+        const lettersCopy = [...letters];
+        const shuffledLetters = shuffleArray(lettersCopy);
+        addLetterRows(tableNode, shuffledLetters);
+      }
+
       generateLetterShapesTable(document.getElementById("letterShapesTable"));
+
     </script>
   </body>
 </html>
