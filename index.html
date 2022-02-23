@@ -25,6 +25,8 @@
       <br/>
       <input type="checkbox" id="isSukoonIncluded" name="isSukoonIncluded" value="isSukoonIncluded">
       <label for="isSukoonIncluded">Include sukoon</label>
+      <br/>
+      <button onclick='generateWord()'>Next word</button> 
     </div>
     <script>
       let letters = [
@@ -77,9 +79,9 @@
             }
           }
         }
-        return generatedWord;
+        document.getElementById("generatedWordSpan").innerHTML = generatedWord;
       }
-      document.getElementById("generatedWordSpan").innerHTML = generateWord();
+      generateWord();
     </script>
   </body>
 <html>
