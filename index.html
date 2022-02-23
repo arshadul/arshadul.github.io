@@ -19,6 +19,12 @@
       <span id="generatedWordSpan" style="color:red;font-size:72px;">
         Generated word goes here.
       </span>
+      <br/>
+      <input type="checkbox" id="areHarakatsIncluded" name="areHarakatsIncluded" value="areHarakatsIncluded">
+      <label for="areHarakatsIncluded">Include harakaat</label>
+      <br/>
+      <input type="checkbox" id="isSukoonIncluded" name="isSukoonIncluded" value="isSukoonIncluded">
+      <label for="isSukoonIncluded">Include sukoon</label>
     </div>
     <script>
       let letters = [
@@ -56,11 +62,20 @@
         "\u064F",
         "\u0650"
       ];
+      let sukoon = "\u0652";
       function generateWord() {
+        const areHarakatsIncluded = document.getElementById("areHarakatsIncluded").checked;
+        const isSukoonIncluded = document.getElementById("isSukoonIncluded").checked;
         let generatedWord = "";
         for (let i = 0; i < 3; i++) {
           generatedWord += letters[Math.floor(Math.random() * letters.length)];
-          generatedWord += harakat[Math.floor(Math.random() * harakat.length)];
+          if (areHarakatsIncluded) {
+            if (i != 1 || isSukoonIncluded == false) {
+              generatedWord += harakat[Math.floor(Math.random() * harakat.length)];
+            } else {
+              generatedWord += sukoon;
+            }
+          }
         }
         return generatedWord;
       }
