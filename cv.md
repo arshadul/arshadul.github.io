@@ -143,7 +143,35 @@ Jan 2003 - Jan 2005 · 2 yrs 1 mo
 *BSc Engg, Computer Science and Engineering*  
 1997 – 2003
 
+## Technical Skills
 
+### Backend & Distributed Systems
+
+Backend Engineering • Distributed Systems • Algorithms • Computer Science  
+Java • Python • Scala • JavaScript • Spring Boot • Bash
+
+### Data Engineering & Infrastructure
+
+Data Pipelines • Apache Spark • Hadoop • Cascading  
+Cassandra • Amazon Aurora
+Lucene / Solr
+
+### Payments & Financial Systems
+
+Payments • Payment Gateways • Payments Integration  
+Financial Reporting • Financial Reporting Systems  
+Regulatory Compliance • SOX / GDPR / SOC2
+
+### Artificial Intelligence & Machine Learning
+
+Artificial Intelligence • Machine Learning  
+Natural Language Processing (NLP) • Text Classification  
+Support Vector Machines (SVM)  
+Anthropic Claude • Ollama / CodeLlama
+
+### Data Science & Mining
+
+Data Mining
 
 
 
